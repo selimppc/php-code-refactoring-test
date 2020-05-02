@@ -31,7 +31,7 @@ Check PHPUnit Version:
 
 Run PHPUnit test:
 
-    $ ./vendor/bin/phpunit tests ( filename )
+    $ ./vendor/bin/phpunit tests 
 
 ### Things have done
 
