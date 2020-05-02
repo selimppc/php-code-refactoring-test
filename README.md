@@ -15,11 +15,14 @@
     ide: PHPStorm 
     php_version: 7.2 
     debug: Xdebug
-    unit_test: PHPUnit  
+    unit_test: PHPUnit 8
 
 
 ### Instructions
 
+Composer install for phpunit 8
+
+    $ composer install
 
 ### Things have done
 
