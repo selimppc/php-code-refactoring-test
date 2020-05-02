@@ -24,6 +24,15 @@ Composer install for phpunit 8
 
     $ composer install
 
+
+Check PHPUnit Version:
+
+    $ ./vendor/bin/phpunit --version
+
+Run PHPUnit test:
+
+    $ ./vendor/bin/phpunit tests ( filename )
+
 ### Things have done
 
 
