@@ -7,12 +7,16 @@
 require_once 'Common.php';
 $common = new Common;
 
+
+// Get file or Receive file from args
+$file = __DIR__ . "/input.txt";
+$list = file_get_contents($file);
 # $list = file_get_contents($argv[1]);
-$list = file_get_contents('input.txt');
 $inputData = explode("\n", trim($list));
 
+
 /**
- *  app
+ *  main
  */
 foreach ($inputData as $row) {
     if (empty($row)) break;
@@ -26,14 +30,14 @@ foreach ($inputData as $row) {
     $currency = getCurrency($p);
 
     //get result
-    $res = $common->getResult($bin, $amount, $currency);
-
-    echo $res;
+    #$res = $common->getFinalResult($bin, $amount, $currency);
+    #echo $res;
+    echo 0;
     print "\n";
 }
 
 /**
- * @param $p
+ * @param $p array
  * @return string
  */
 function getBin($p)
@@ -43,7 +47,7 @@ function getBin($p)
 }
 
 /**
- * @param $p
+ * @param $p array
  * @return string
  */
 function getAmount($p)
@@ -53,7 +57,7 @@ function getAmount($p)
 }
 
 /**
- * @param $p
+ * @param $p array
  * @return string
  */
 function getCurrency($p)

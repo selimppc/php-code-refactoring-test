@@ -1,9 +1,9 @@
 <?php
 
-require_once 'BaseInterface.php';
-require_once 'services/CheckEu.php';
-require_once 'services/BinList.php';
-require_once 'services/Rates.php';
+require_once __DIR__."/BaseInterface.php";
+require_once __DIR__."/services/CheckEu.php";
+require_once __DIR__."/services/BinList.php";
+require_once __DIR__."/services/Rates.php";
 
 /**
  * Class Common
@@ -16,7 +16,7 @@ class Common implements BaseInterface
      * @param $currency
      * @return float|int
      */
-    public function getResult( $bin, $amount, $currency ) {
+    public function getFinalResult( $bin, $amount, $currency ) {
         $rat = $this->getRateByCurrency( $currency, $amount );
         $amnt = ( $this->getIsEuByBin( $bin ) == 'yes' ? 0.01 : 0.02 );
         return $rat * $amnt;

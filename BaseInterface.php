@@ -11,7 +11,7 @@ interface BaseInterface
      * @param $currency
      * @return mixed
      */
-    public function getResult( $bin, $amount, $currency );
+    public function getFinalResult( $bin, $amount, $currency );
 
     /**
      * @param $bin

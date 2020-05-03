@@ -1,28 +1,43 @@
 <?php declare(strict_types=1);
+
+require_once __DIR__."/../app.php";
+
 use PHPUnit\Framework\TestCase;
 
 final class AppTest extends TestCase
 {
-    /*public function testCanBeCreatedFromValidEmailAddress(): void
+    public function testApp() : void
     {
-        $this->assertInstanceOf(
-            Email::class,
-            Email::fromString('user@example.com')
-        );
+        $output = `php app.php input.txt`;
+        $this->assertNotEmpty( $output );
+        $this->assertTrue(true, $output);
     }
 
-    public function testCannotBeCreatedFromInvalidEmailAddress(): void
+    public function testGetBin() : void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $arr = ['{"bin":"45717360"', '"amount":"100.00"', '"currency":"EUR"}'];
+        $output = getBin($arr);
+        $this->assertNotEmpty($output);
+        $this->assertEquals('45717360', $output);
+        $this->assertStringContainsString('45717360', $output);
+    }
 
-        Email::fromString('invalid');
-    }*/
-
-    public function testCanBeUsedAsString(): void
+    public function testGetAmount() : void
     {
-        $this->assertEquals(
-            1, 1
-        );
+        $arr = ['{"bin":"45717360"', '"amount":"100.00"', '"currency":"EUR"}'];
+        $output = getAmount($arr);
+        $this->assertNotEmpty($output);
+        $this->assertEquals('100.00', $output);
+        $this->assertStringContainsString('100.00', $output);
+    }
+
+    public function testGetCurrency() : void
+    {
+        $arr = ['{"bin":"45717360"', '"amount":"100.00"', '"currency":"EUR"}'];
+        $output = getCurrency($arr);
+        $this->assertNotEmpty($output);
+        $this->assertEquals('EUR', $output);
+        $this->assertStringContainsString('EUR', $output);
     }
 
 }
