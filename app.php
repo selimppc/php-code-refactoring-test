@@ -4,16 +4,18 @@
  * Selim Reza
  */
 
-require_once 'Common.php';
+require_once __DIR__."/services/DataExploreService.php";
+require_once __DIR__.'/Common.php';
+
+$exploreData = new DataExploreService();
 $common = new Common;
 
 
 // Get file or Receive file from args
-$file = __DIR__ . "/input.txt";
+$file = isset($argv) && $argv[1] == 'input.txt' ?
+    $argv[1] : __DIR__ . "/input.txt";
 $list = file_get_contents($file);
-# $list = file_get_contents($argv[1]);
 $inputData = explode("\n", trim($list));
-
 
 /**
  *  main
@@ -25,9 +27,9 @@ foreach ($inputData as $row) {
     $p = explode(",", $row);
 
     // retrieve bin, amount and currency
-    $bin = getBin($p);
-    $amount = getAmount($p);
-    $currency = getCurrency($p);
+    $bin = $exploreData->getBin($p);
+    $amount = $exploreData->getAmount($p);
+    $currency = $exploreData->getCurrency($p);
 
     //get result
     $res = $common->getFinalResult($bin, $amount, $currency);
@@ -35,34 +37,6 @@ foreach ($inputData as $row) {
     print "\n";
 }
 
-/**
- * @param $p array
- * @return string
- */
-function getBin($p)
-{
-    $p2 = explode(':', $p[0]);
-    return trim($p2[1], '"');
-}
 
-/**
- * @param $p array
- * @return string
- */
-function getAmount($p)
-{
-    $p2 = explode(':', $p[1]);
-    return trim($p2[1], '"');
-}
-
-/**
- * @param $p array
- * @return string
- */
-function getCurrency($p)
-{
-    $p2 = explode(':', $p[2]);
-    return trim($p2[1], '"}');
-}
 
 
