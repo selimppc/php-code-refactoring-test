@@ -21,24 +21,16 @@ class BinLinkServiceTest extends TestCase
         ];
     }
 
-    public function testGetBinResult() : void
-    {
-        $output = $this->binListService->getBinResult( $this->data['bin'] );
-        $this->assertNotEmpty($output);
-        $this->assertStringContainsString( 'number', $output );
-        $this->assertStringContainsString( 'scheme', $output );
-        $this->assertStringContainsString( 'type', $output );
-        $this->assertStringContainsString( 'country', $output );
-    }
-
     public function testGetContents() : void
     {
-        $output = $this->binListService->getContents( $this->data['bin'] );
-        $this->assertNotEmpty($output);
-        $this->assertStringContainsString( 'number', $output );
-        $this->assertStringContainsString( 'scheme', $output );
-        $this->assertStringContainsString( 'type', $output );
-        $this->assertStringContainsString( 'country', $output );
+        // Create a stub for the BinListService class.
+        $stub = $this->createStub(BinListService::class);
+
+        $stub->method('getContents')
+            ->with($this->equalTo('https://lookup.binlist.net/'))
+            ->willReturn(json_decode('foo'));
+
+        $this->assertSame(json_decode('foo'), $stub->getBinResult($this->data['bin']));
     }
 
 

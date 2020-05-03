@@ -24,7 +24,7 @@ Composer install for phpunit 8
 
     $ composer install
 
-Run PHPUnit test:
+Run PHPUnit test: ( able to run without internet )
 
     $ ./vendor/bin/phpunit tests 
 

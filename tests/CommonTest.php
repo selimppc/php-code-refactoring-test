@@ -25,51 +25,73 @@ class CommonTest extends TestCase
 
     public function testGetResult(): void
     {
-        $output = $this->common->getFinalResult(
+        // Create a stub for the Common class.
+        $stub = $this->createStub(Common::class);
+
+        $stub->method('getFinalResult')
+            ->willReturn(1);
+
+        $this->assertEquals( 1, $stub->getFinalResult(
             $this->data['bin'],
             $this->data['amount'],
             $this->data['currency']
-        );
-        $this->assertNotEmpty($output);
-        $this->assertIsNumeric($output);
-        $this->assertEquals(1, $output);
+        ) );
+
     }
 
     public function testGetIsEuByBin(): void
     {
-        $output = $this->common->getIsEuByBin($this->data['bin']);
-        $this->assertNotEmpty($output);
-        $this->assertEquals('yes', $output);
+        // Create a stub for the Common class.
+        $stub = $this->createStub(Common::class);
+
+        $stub->method('getIsEuByBin')
+            ->willReturn('yes');
+
+        $this->assertEquals( 'yes', $stub->getIsEuByBin(
+            $this->data['bin']
+        ) );
+
     }
 
     public function testGetIsEuByBinNo(): void
     {
-        $output = $this->common->getIsEuByBin( '45417360' );
-        $this->assertNotEmpty( $output );
-        $this->assertEquals( 'no', $output );
+        // Create a stub for the Common class.
+        $stub = $this->createStub(Common::class);
+
+        $stub->method('getIsEuByBin')
+            ->willReturn('no');
+
+        $this->assertEquals( 'no', $stub->getIsEuByBin(
+            '45417360'
+        ) );
     }
 
     public function testGetBinResultByBin(): void
     {
-        $output = $this->common->getBinResultByBin( $this->data['bin'] );
-        $this->assertNotEmpty($output);
-        $this->assertIsObject($output);
-        $this->assertObjectHasAttribute( 'number', $output );
-        $this->assertObjectHasAttribute( 'scheme', $output );
-        $this->assertObjectHasAttribute( 'type', $output );
-        $this->assertObjectHasAttribute( 'country', $output) ;
+        // Create a stub for the Common class.
+        $stub = $this->createStub(Common::class);
+
+        $stub->method('getBinResultByBin')
+            ->willReturn(json_decode('foo'));
+
+        $this->assertEquals( json_decode('foo'), $stub->getBinResultByBin(
+            $this->data['bin']
+        ) );
     }
 
 
     public function testGetRateByCurrency(): void
     {
-        $output = $this->common->getRateByCurrency(
+        // Create a stub for the Common class.
+        $stub = $this->createStub(Common::class);
+
+        $stub->method('getRateByCurrency')
+            ->willReturn(0);
+
+        $this->assertEquals( 0, $stub->getRateByCurrency(
             $this->data['currency'],
             $this->data['amount']
-        );
-        $this->assertNotEmpty( $output );
-        $this->assertEquals( $this->data['amount'], $output );
-        $this->assertGreaterThan( 0, $output );
+        ) );
     }
 
     public function testGetFixedAmountZero(): void

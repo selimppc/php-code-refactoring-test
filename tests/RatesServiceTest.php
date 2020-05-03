@@ -22,43 +22,17 @@ class RatesServiceTest extends TestCase
         ];
     }
 
-    public function testGetRate() : void
+    public function testGetContents() : void
     {
-        $output = $this->ratesService->getRate( $this->data[0] );
-        $this->assertEmpty( $output );
-        $this->assertEquals( NULL, $output );
-    }
+        // Create a stub for the RatesService class.
+        $stub = $this->createStub(RatesService::class);
 
-    public function testGetRateNotNull() : void
-    {
-        $output = $this->ratesService->getRate( $this->data[1] );
-        $this->assertNotEmpty( $output );
-        $this->assertGreaterThan( 100, $output );
-        $this->assertLessThan( 150, $output );
-    }
+        $stub->method('getJson')
+            ->with($this->equalTo('https://api.exchangeratesapi.io/latest'))
+            ->willReturn(json_decode('foo'));
 
-    public function testSetRate() : void
-    {
-        $output = $this->ratesService->setRate( $this->data[0] );
-        $this->assertEmpty( $output );
-        $this->assertEquals( NULL, $output );
-    }
-
-    public function testSetRateNotNull() : void
-    {
-        $output = $this->ratesService->setRate( $this->data[1] );
-        $this->assertNotEmpty( $output );
-        $this->assertGreaterThan( 100, $output );
-        $this->assertLessThan( 150, $output );
-    }
-
-    public function testGetJson() : void
-    {
-        $output = $this->ratesService->getJson();
-        $this->assertNotEmpty( $output );
-        $this->assertIsArray( $output );
-        $this->assertArrayHasKey( 'DKK', $output );
-        $this->assertArrayHasKey( 'JPY', $output );
+        $this->assertSame(json_decode('foo'), $stub->setRate($this->data[1]));
+        $this->assertSame(json_decode('foo'), $stub->getRate($this->data[1]));
     }
 
 
