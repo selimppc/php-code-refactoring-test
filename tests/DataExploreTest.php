@@ -25,26 +25,26 @@ class DataExploreTest extends TestCase
 
     public function testGetBin() : void
     {
-        $output = $this->dataExploreService->getBin($this->data);
-        $this->assertNotEmpty($output);
-        $this->assertEquals('45717360', $output);
-        $this->assertStringContainsString('45717360', $output);
+        $output = $this->dataExploreService->getBin( $this->data );
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( '45717360', $output );
+        $this->assertStringContainsString( '45717360', $output );
     }
 
     public function testGetAmount() : void
     {
-        $output = $this->dataExploreService->getAmount($this->data);
-        $this->assertNotEmpty($output);
-        $this->assertEquals('100.00', $output);
-        $this->assertStringContainsString('100.00', $output);
+        $output = $this->dataExploreService->getAmount( $this->data );
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( '100.00', $output );
+        $this->assertStringContainsString( '100.00', $output );
     }
 
     public function testGetCurrency() : void
     {
-        $output = $this->dataExploreService->getCurrency($this->data);
-        $this->assertNotEmpty($output);
-        $this->assertEquals('EUR', $output);
-        $this->assertStringContainsString('EUR', $output);
+        $output = $this->dataExploreService->getCurrency( $this->data );
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( 'EUR', $output );
+        $this->assertStringContainsString( 'EUR', $output );
     }
 
 }

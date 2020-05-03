@@ -19,7 +19,7 @@ class Common implements BaseInterface
     public function getFinalResult( $bin, $amount, $currency ) {
         $rat = $this->getRateByCurrency( $currency, $amount );
         $amnt = ( $this->getIsEuByBin( $bin ) == 'yes' ? 0.01 : 0.02 );
-        return round($rat * $amnt, 2);
+        return round( $rat * $amnt, 2 );
     }
 
 

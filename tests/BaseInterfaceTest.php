@@ -12,8 +12,8 @@ class BaseInterfaceTest extends TestCase
 
     public function testInterface(): void
     {
-        $obj = $this->createMock(BaseInterface::class);
-        $this->assertInstanceOf(BaseInterface::class, $obj);
+        $obj = $this->createMock(BaseInterface::class );
+        $this->assertInstanceOf(BaseInterface::class, $obj );
     }
 
 }

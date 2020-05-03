@@ -23,22 +23,22 @@ class BinLinkServiceTest extends TestCase
 
     public function testGetBinResult() : void
     {
-        $output = $this->binListService->getBinResult($this->data['bin']);
+        $output = $this->binListService->getBinResult( $this->data['bin'] );
         $this->assertNotEmpty($output);
-        $this->assertStringContainsString('number', $output);
-        $this->assertStringContainsString('scheme', $output);
-        $this->assertStringContainsString('type', $output);
-        $this->assertStringContainsString('country', $output);
+        $this->assertStringContainsString( 'number', $output );
+        $this->assertStringContainsString( 'scheme', $output );
+        $this->assertStringContainsString( 'type', $output );
+        $this->assertStringContainsString( 'country', $output );
     }
 
     public function testGetContents() : void
     {
-        $output = $this->binListService->getContents($this->data['bin']);
+        $output = $this->binListService->getContents( $this->data['bin'] );
         $this->assertNotEmpty($output);
-        $this->assertStringContainsString('number', $output);
-        $this->assertStringContainsString('scheme', $output);
-        $this->assertStringContainsString('type', $output);
-        $this->assertStringContainsString('country', $output);
+        $this->assertStringContainsString( 'number', $output );
+        $this->assertStringContainsString( 'scheme', $output );
+        $this->assertStringContainsString( 'type', $output );
+        $this->assertStringContainsString( 'country', $output );
     }
 
 

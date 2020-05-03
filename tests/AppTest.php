@@ -11,7 +11,7 @@ final class AppTest extends TestCase
     {
         $output = `php app.php input.txt`;
         $this->assertNotEmpty( $output );
-        $this->assertTrue(true, $output);
+        $this->assertTrue( true, $output );
     }
 
 }

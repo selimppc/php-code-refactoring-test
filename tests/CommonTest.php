@@ -44,20 +44,20 @@ class CommonTest extends TestCase
 
     public function testGetIsEuByBinNo(): void
     {
-        $output = $this->common->getIsEuByBin('45417360');
-        $this->assertNotEmpty($output);
-        $this->assertEquals('no', $output);
+        $output = $this->common->getIsEuByBin( '45417360' );
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( 'no', $output );
     }
 
     public function testGetBinResultByBin(): void
     {
-        $output = $this->common->getBinResultByBin($this->data['bin']);
+        $output = $this->common->getBinResultByBin( $this->data['bin'] );
         $this->assertNotEmpty($output);
         $this->assertIsObject($output);
-        $this->assertObjectHasAttribute('number', $output);
-        $this->assertObjectHasAttribute('scheme', $output);
-        $this->assertObjectHasAttribute('type', $output);
-        $this->assertObjectHasAttribute('country', $output);
+        $this->assertObjectHasAttribute( 'number', $output );
+        $this->assertObjectHasAttribute( 'scheme', $output );
+        $this->assertObjectHasAttribute( 'type', $output );
+        $this->assertObjectHasAttribute( 'country', $output) ;
     }
 
 
@@ -67,9 +67,9 @@ class CommonTest extends TestCase
             $this->data['currency'],
             $this->data['amount']
         );
-        $this->assertNotEmpty($output);
-        $this->assertEquals($this->data['amount'], $output);
-        $this->assertGreaterThan(0, $output);
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( $this->data['amount'], $output );
+        $this->assertGreaterThan( 0, $output );
     }
 
     public function testGetFixedAmountZero(): void
@@ -79,8 +79,8 @@ class CommonTest extends TestCase
             $this->data['currency'],
             $this->data['amount']
         );
-        $this->assertNotEmpty($output);
-        $this->assertEquals($this->data['amount'], $output);
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( $this->data['amount'], $output );
     }
 
     public function testGetFixedAmount(): void
@@ -90,7 +90,7 @@ class CommonTest extends TestCase
             $this->data['currency'],
             $this->data['amount']
         );
-        $this->assertNotEmpty($output);
-        $this->assertEquals($this->data['amount']/$rate, $output);
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( $this->data['amount']/$rate, $output );
     }
 }

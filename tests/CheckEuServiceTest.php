@@ -24,15 +24,15 @@ class CheckEuServiceTest extends TestCase
 
     public function testIsEu() : void
     {
-        $output = $this->checkEuService->isEu($this->data[0]);
-        $this->assertNotEmpty($output);
-        $this->assertEquals('yes', $output);
+        $output = $this->checkEuService->isEu( $this->data[0] );
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( 'yes', $output );
     }
 
     public function testIsEuNo() : void
     {
-        $output = $this->checkEuService->isEu('SR');
-        $this->assertNotEmpty($output);
-        $this->assertEquals('no', $output);
+        $output = $this->checkEuService->isEu( 'SR' );
+        $this->assertNotEmpty( $output );
+        $this->assertEquals( 'no', $output );
     }
 }
