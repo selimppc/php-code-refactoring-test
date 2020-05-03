@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class BinList
+ * Class BinListService
  */
-class BinList
+class BinListService
 {
     const LOOK_UP_URL = 'https://lookup.binlist.net/';
 
@@ -16,11 +16,11 @@ class BinList
     }
 
     /**
-     * @param $value
+     * @param $bin
      * @return bool|string
      */
-    public function getContents( $value ) {
-        return file_get_contents( self::LOOK_UP_URL .$value );
+    public function getContents( $bin ) {
+        return file_get_contents( self::LOOK_UP_URL .$bin );
     }
 
 }

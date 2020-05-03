@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class CheckEU
+ * Class CheckEUService
  */
-class CheckEu
+class CheckEuService
 {
     /**
      * @param $c

@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__."/BaseInterface.php";
-require_once __DIR__."/services/CheckEu.php";
-require_once __DIR__."/services/BinList.php";
-require_once __DIR__."/services/Rates.php";
+require_once __DIR__."/services/CheckEuService.php";
+require_once __DIR__."/services/BinListService.php";
+require_once __DIR__."/services/RatesService.php";
 
 /**
  * Class Common
@@ -19,7 +19,7 @@ class Common implements BaseInterface
     public function getFinalResult( $bin, $amount, $currency ) {
         $rat = $this->getRateByCurrency( $currency, $amount );
         $amnt = ( $this->getIsEuByBin( $bin ) == 'yes' ? 0.01 : 0.02 );
-        return $rat * $amnt;
+        return round($rat * $amnt, 2);
     }
 
 
@@ -30,7 +30,7 @@ class Common implements BaseInterface
     public function getIsEuByBin( $bin ) {
         $r = $this->getBinResultByBin( $bin );
         // call an object
-        $checkEu = new CheckEu();
+        $checkEu = new CheckEuService();
         return $checkEu->isEu( $r->country->alpha2 );
     }
 
@@ -40,7 +40,7 @@ class Common implements BaseInterface
      */
     public function getBinResultByBin( $bin ) {
         // call an object
-        $binList = new BinList();
+        $binList = new BinListService();
         $binResults = $binList->getBinResult( $bin );
         if ( !$binResults ) die( 'error!' );
         return json_decode( $binResults );
@@ -53,7 +53,7 @@ class Common implements BaseInterface
      */
     public function getRateByCurrency( $currency, $amount ) {
         // call an object
-        $rates = new Rates();
+        $rates = new RatesService();
         $rate = $rates->getRate( $currency );
         return $this->getFixedAmount( $rate, $currency, $amount );
     }

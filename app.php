@@ -30,9 +30,8 @@ foreach ($inputData as $row) {
     $currency = getCurrency($p);
 
     //get result
-    #$res = $common->getFinalResult($bin, $amount, $currency);
-    #echo $res;
-    echo 0;
+    $res = $common->getFinalResult($bin, $amount, $currency);
+    echo $res;
     print "\n";
 }
 

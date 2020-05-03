@@ -1,28 +1,28 @@
 <?php
 
 /**
- * Class Rates
+ * Class RatesService
  */
-class Rates
+class RatesService
 {
     const API_URL = 'https://api.exchangeratesapi.io/latest';
     const RATE_TYPE = 'rates';
 
     /**
-     * @param $value
+     * @param $currency
      * @return mixed|null
      */
-    public function getRate( $value ) {
-        return $this->setRate( $value );
+    public function getRate( $currency ) {
+        return $this->setRate( $currency );
     }
 
     /**
-     * @param $value
+     * @param $currency
      * @return mixed|null
      */
-    public function setRate( $value ) {
+    public function setRate( $currency ) {
         $res = $this->getJson();
-        if ( isset( $res[$value] ) ) return $res[$value];
+        if ( isset( $res[$currency] ) ) return $res[$currency];
         return null;
     }
 
