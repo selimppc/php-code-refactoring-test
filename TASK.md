@@ -125,24 +125,3 @@ Assuming PHP code is in `app.php`, you could run it by this command, output migh
     3. Just to note – no need to implement anything additional. Just structure your code so that we could implement that later on without braking our tests;
 1. It should look as you'd write it yourself in production – consistent, readable, structured (what we'd hope). Basically it's better to just look at the existing code and re-write it from scratch.
 1. Use composer to install testing framework and any needed dependencies you'd like to use, also for enabling autoloading.
-1. Do not use Paysera name in titles, descriptions or the code itself. This helps others to find the libraries that are really related to our services and/or are developed and maintained by our team.
-
-# Task Submission
-
-You can put the code publicly (in github or similar code control systems) if you want, but please note the requirement about Paysera name usage.
-
-Before submitting your solution, please look to the requirements once again – **all** of them **must** be accomplished.
-
-Send it in your favourite format (link to versioned code, code in zip file etc.) to one of the following emails based on your city, unless instructed otherwise:
-* code-zd@paysera.com, if you've been asked to send the task to this email (not depending upon the city)
-* code-vilnius@paysera.com
-* code-kaunas@paysera.com
-* code-sofia@paysera.com
-* code-manila@paysera.com
-* code-dhaka@paysera.com
-* code-saint-petersburg@paysera.com
-* code-plovdiv@paysera.com
-
-Please also note the time taken to complete the task – this helps us to improve the task in case it takes too long for most developers.
-
-There are no time restrictions from our end, though – please give as much time as needed to make a solution that matches the requirements.
