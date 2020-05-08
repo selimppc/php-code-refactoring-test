@@ -31,8 +31,10 @@ class RatesServiceTest extends TestCase
             ->with($this->equalTo('https://api.exchangeratesapi.io/latest'))
             ->willReturn(json_decode('foo'));
 
-        $this->assertSame(json_decode('foo'), $stub->setRate($this->data[1]));
-        $this->assertSame(json_decode('foo'), $stub->getRate($this->data[1]));
+        $result = $stub->setRate($this->data[1]);
+
+        $this->assertSame(json_decode('foo'), $result);
+        $this->assertSame(json_decode('foo'), $result);
     }
 
 

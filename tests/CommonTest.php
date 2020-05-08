@@ -31,11 +31,13 @@ class CommonTest extends TestCase
         $stub->method('getFinalResult')
             ->willReturn(1);
 
-        $this->assertEquals( 1, $stub->getFinalResult(
+        $result = $stub->getFinalResult(
             $this->data['bin'],
             $this->data['amount'],
             $this->data['currency']
-        ) );
+        );
+
+        $this->assertEquals( 1,  $result);
 
     }
 
@@ -47,9 +49,11 @@ class CommonTest extends TestCase
         $stub->method('getIsEuByBin')
             ->willReturn('yes');
 
-        $this->assertEquals( 'yes', $stub->getIsEuByBin(
+        $result = $stub->getIsEuByBin(
             $this->data['bin']
-        ) );
+        );
+
+        $this->assertEquals( 'yes',  $result);
 
     }
 
@@ -61,9 +65,11 @@ class CommonTest extends TestCase
         $stub->method('getIsEuByBin')
             ->willReturn('no');
 
-        $this->assertEquals( 'no', $stub->getIsEuByBin(
+        $result = $stub->getIsEuByBin(
             '45417360'
-        ) );
+        );
+
+        $this->assertEquals( 'no',  $result);
     }
 
     public function testGetBinResultByBin(): void
@@ -74,9 +80,11 @@ class CommonTest extends TestCase
         $stub->method('getBinResultByBin')
             ->willReturn(json_decode('foo'));
 
-        $this->assertEquals( json_decode('foo'), $stub->getBinResultByBin(
+        $result = $stub->getBinResultByBin(
             $this->data['bin']
-        ) );
+        );
+
+        $this->assertEquals( json_decode('foo'), $result);
     }
 
 
@@ -88,10 +96,12 @@ class CommonTest extends TestCase
         $stub->method('getRateByCurrency')
             ->willReturn(0);
 
-        $this->assertEquals( 0, $stub->getRateByCurrency(
+        $result = $stub->getRateByCurrency(
             $this->data['currency'],
             $this->data['amount']
-        ) );
+        );
+
+        $this->assertEquals( 0,  $result);
     }
 
     public function testGetFixedAmountZero(): void

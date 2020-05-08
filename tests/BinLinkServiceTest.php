@@ -30,7 +30,9 @@ class BinLinkServiceTest extends TestCase
             ->with($this->equalTo('https://lookup.binlist.net/'))
             ->willReturn(json_decode('foo'));
 
-        $this->assertSame(json_decode('foo'), $stub->getBinResult($this->data['bin']));
+        $result = $stub->getBinResult($this->data['bin']);
+
+        $this->assertSame(json_decode('foo'), $result);
     }
 
 
