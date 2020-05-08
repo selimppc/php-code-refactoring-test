@@ -30,7 +30,7 @@ Run application
 
 Run PHPUnit test: ( able to run without internet )
 
-    $ ./vendor/bin/phpunit tests 
+    $ ./vendor/bin/phpunit 
 
 ### Things have done
 
