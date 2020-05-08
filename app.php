@@ -37,6 +37,3 @@ foreach ($inputData as $row) {
     print "\n";
 }
 
-
-
-
