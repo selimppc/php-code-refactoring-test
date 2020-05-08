@@ -11,39 +11,16 @@ class CheckEuService
      */
     public function isEu( $c )
     {
-        switch ( $c ) {
-            case 'AT':
-            case 'BE':
-            case 'BG':
-            case 'CY':
-            case 'CZ':
-            case 'DE':
-            case 'DK':
-            case 'EE':
-            case 'ES':
-            case 'FI':
-            case 'FR':
-            case 'GR':
-            case 'HR':
-            case 'HU':
-            case 'IE':
-            case 'IT':
-            case 'LT':
-            case 'LU':
-            case 'LV':
-            case 'MT':
-            case 'NL':
-            case 'PO':
-            case 'PT':
-            case 'RO':
-            case 'SE':
-            case 'SI':
-            case 'SK':
-                return 'yes';
-            default:
-                $result = 'no';
-        }
-        return $result;
+        // array list
+        $arr = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI',
+            'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL',
+            'PO', 'PT', 'RO', 'SE', 'SI', 'SK'];
+
+        $output = 'no';
+        if ( in_array( $c, $arr )) { $output = 'yes'; }
+
+        // return output
+        return $output;
     }
 
 }

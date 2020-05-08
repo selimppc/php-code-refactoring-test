@@ -18,11 +18,15 @@
     unit_test: PHPUnit 8
 
 
-### Instructions ( 2 steps only )
+### Instructions ( a moment )
 
 Composer install for phpunit 8
 
     $ composer install
+
+Run application 
+
+    $ php app.php input.txt
 
 Run PHPUnit test: ( able to run without internet )
 
