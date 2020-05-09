@@ -84,7 +84,7 @@ class CommonTest extends TestCase
             $this->data['bin']
         );
 
-        $this->assertEquals( json_decode('foo'), $result);
+        $this->assertEquals( null, $result);
     }
 
 

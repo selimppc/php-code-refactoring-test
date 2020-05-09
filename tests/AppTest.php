@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__."/../app.php";
 
 use PHPUnit\Framework\TestCase;
 
@@ -28,13 +29,15 @@ final class AppTest extends TestCase
         $this->assertTrue($fileExist);
     }
 
-//    public function testAppTrue() : void
-//    {
-//        #$output = `php $this->appFile input.txt`;
-//        #$this->assertNotEmpty( $output );
-//        #$this->assertTrue( true, $output );
-//    }
+    public function testApp() : void
+    {
+        $app = $this->createMock(App::class);
+        $app->method('getResult')
+            ->willReturn(1);
 
+        $result = $app->main($this->data);
+        $this->assertEmpty($result);
+    }
 
 
 }

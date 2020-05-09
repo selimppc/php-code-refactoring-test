@@ -32,7 +32,7 @@ class BinLinkServiceTest extends TestCase
 
         $result = $stub->getBinResult($this->data['bin']);
 
-        $this->assertSame(json_decode('foo'), $result);
+        $this->assertSame(null, $result);
     }
 
 
